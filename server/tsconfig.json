@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es5", // Compile to ES5 for broader compatibility
+    "module": "commonjs",
+    "lib": ["ESNext"],
+    "sourceMap": false, // Generate source maps for debugging
+    "rootDir": ".",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+     },
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false, // Disable strict property initialization
+  },
+}

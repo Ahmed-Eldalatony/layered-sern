@@ -1,0 +1,52 @@
+{
+  "name": "layered-sern-server",
+  "version": "1.0.0",
+  "description": "Ecommerce website",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "bun run index.ts --hot",
+    "dev:node": "nodemon",
+    "start": "ts-node --project ./tsconfig.json -r tsconfig-paths/register api/index.js",
+    "prestart":"tsc && tsc-alias",
+    "build:server": "tsc && tsc-alias",
+    "generate": "prisma generate",
+    "test": "playwright test"
+  },
+   "prisma": {
+    "schema": "./db/schema.prisma"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.52.0",
+    "@prisma/client": "^6.8.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "helmet": "^7.1.0",
+    "prisma": "^6.8.2",
+    "sqlite3": "^5.1.6",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.11.0",
+    "nodemon": "^3.1.9",
+    "tsc-alias": "^1.8.16",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client"
+    ]
+  }
+}
