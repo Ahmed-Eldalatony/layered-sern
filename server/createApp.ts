@@ -1,17 +1,16 @@
 // Function to create and configure the Express application instance.
-import express, { Application, NextFunction, Request, Response } from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import { config } from '@/config'; // Import the config object
-import { errorHandler, loggingMiddleware } from '@/middlewares'; // Import loggingMiddleware
-import { mainRouter } from '@/routes';
+import express, { Application, NextFunction, Request, Response } from "express";
+import cors from "cors";
+import helmet from "helmet";
+import { config } from "@/config"; // Import the config object
+import { errorHandler } from "@/middlewares"; // Import loggingMiddleware
+import { mainRouter } from "@/routes";
 
 export function createApp(): Application {
   const app = express();
   const port = config.port; // Use config.port
 
   // Logging Middleware (Apply early)
-  app.use(loggingMiddleware);
 
   // Security Middleware
   app.use(helmet());
@@ -22,10 +21,10 @@ export function createApp(): Application {
   app.use(express.urlencoded({ extended: true }));
 
   // Routes
-  app.get('/', (req, res) => {
-    res.status(200).json({ status: 'UP', port });
+  app.get("/", (req, res) => {
+    res.status(200).json({ status: "UP", port });
   });
-  app.use('/api', mainRouter); // Mount the main router under /api
+  app.use("/api", mainRouter); // Mount the main router under /api
 
   // Error Handling Middleware (Must be last)
   app.use(errorHandler);
